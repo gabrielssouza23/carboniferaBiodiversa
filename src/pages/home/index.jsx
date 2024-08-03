@@ -8,7 +8,7 @@ export default function Home() {
         <div className="bg-custom w-screen justify-center flex">
             <div className='m-12 w-full h-screen bg-zinc-50 overflow-hidden space-y-16 font-poppins'>
                 {/* // <div className='bg-zinc-50 flex flex-col h-screen'> */}
-                <Navbar />
+                <Navbar currentPage='home'/>
                 <section className='flex justify-center flex-col space-y-16'>
                     <div className='space-y-5 flex flex-col items-center justify-center'>
                         {/* welcome */}

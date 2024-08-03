@@ -1,18 +1,17 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Catálogo', href: '#', current: false },
-  { name: 'Sobre o Projeto', href: '#', current: false },
-  { name: 'Espécies', href: '#', current: false },
-]
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar({ currentPage }) {
+  const navigation = [
+    { name: 'Home', href: '#', current: currentPage == 'home' ? true : false },
+    { name: 'Catálogo', href: '#', current: currentPage == 'catalog' ? true : false },
+    { name: 'Sobre o Projeto', href: '#', current: currentPage == 'about' ? true : false },
+    { name: 'Espécies', href: '#', current: currentPage == 'species' ? true : false },
+  ]
   return (
     // <div className='w-full fixed top-0 left-0'>
         <Disclosure as="nav" className="bg-zinc-50 w-full ">
