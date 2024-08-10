@@ -10,11 +10,11 @@ export default function Home() {
             <section className='flex justify-center flex-col space-y-16'>
                 <div className='space-y-5 flex flex-col items-center justify-center'>
                     {/* welcome */}
-                    <h1 className='text-6xl text-custom-green'>
+                    <h1 className='text-3xl font-semibold sm:text-6xl text-custom-green'>
                         Carbonífera Biodiversa
                     </h1>
 
-                    <p className='text-lg'>
+                    <p className='text-sm  sm:text-lg'>
                         Conheça a Biodiversidade da Região Carbonífera!
                     </p>
 

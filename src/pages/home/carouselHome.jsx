@@ -18,19 +18,6 @@ const images = [
 export default function CarouselHome() {
   return (
     <Carousel autoplay>
-      {/* <div>
-        <img src="/teste.JPGs" alt="" />
-        <h3 style={contentStyle}>1</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>2</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>3</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>4</h3>
-      </div> */}
       {images.map((image, index) => (
         <div key={index} className="carousel-slide">
           <img src={image.src} alt={image.alt} className="carousel-image" style={contentStyle} />
