@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'custom-green': '#5F6D36',
+        'cardBg': '#6F7A4B',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
