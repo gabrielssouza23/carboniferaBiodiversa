@@ -8,7 +8,7 @@ function classNames(...classes) {
 export default function Navbar({ currentPage }) {
   const navigation = [
     { name: 'Home', href: '/', current: currentPage == 'home' ? true : false },
-    { name: 'Catálogo', href: '/', current: currentPage == 'catalog' ? true : false },
+    { name: 'Catálogo', href: '/catalogo', current: currentPage == 'catalog' ? true : false },
     { name: 'Sobre o Projeto', href: '#', current: currentPage == 'about' ? true : false },
     { name: 'Espécies', href: '#', current: currentPage == 'species' ? true : false },
   ]
