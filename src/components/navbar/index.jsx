@@ -7,15 +7,15 @@ function classNames(...classes) {
 
 export default function Navbar({ currentPage }) {
   const navigation = [
-    { name: 'Home', href: '#', current: currentPage == 'home' ? true : false },
-    { name: 'Catálogo', href: '#', current: currentPage == 'catalog' ? true : false },
+    { name: 'Home', href: '/', current: currentPage == 'home' ? true : false },
+    { name: 'Catálogo', href: '/', current: currentPage == 'catalog' ? true : false },
     { name: 'Sobre o Projeto', href: '#', current: currentPage == 'about' ? true : false },
     { name: 'Espécies', href: '#', current: currentPage == 'species' ? true : false },
   ]
   return (
     // <div className='w-full fixed top-0 left-0'>
-        <Disclosure as="nav" className="bg-zinc-50 w-full ">
-      <div className="m-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex h-16 items-center justify-center">
+        <Disclosure as="nav" className="bg-zinc-50 w-full fixed top-0 inset-x-0 z-50">
+      <div className="bg-zinc-50 w-full px-2 sm:px-6 lg:px-8 flex h-16 items-center justify-center">
         <div className="relative flex h-16 items-center justify-center">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}

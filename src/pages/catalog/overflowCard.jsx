@@ -30,7 +30,7 @@ export default function OverflowCard() {
                 <AspectRatio ratio="2">
                     <img
                         src="/queroqueroCarousel.jpg"
-                        srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
+                        srcSet="/queroqueroCarousel.jpg 2x"
                         loading="lazy"
                         alt=""
                     />
