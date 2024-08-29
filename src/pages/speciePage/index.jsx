@@ -18,8 +18,9 @@ export default function Specie() {
             <div className="m-auto p-8">
                 <CarouselSpecie />
             </div>
-            <section className=''>
-                
+            <section className='flex items-center justify-center flex-col gap-6'>
+                <h1>Descrição morfológica</h1>
+                <p>Ave Diurna </p>
             </section>
             <Footer />
         </MainContainer>
