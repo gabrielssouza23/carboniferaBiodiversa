@@ -8,43 +8,26 @@ import {
   SyncOutlined,
 } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
+import { PawPrint, Sprout } from 'lucide-react';
 
 export default function TagCategorySpecie() {
   const specieCategories = [
-    'Animalia', 
-    'Chordata', 
-    'Aves', 
-    'Charadriiformes', 
-    'Charadriidae', 
-    'Vanellus', 
-    'Vanellus chilensis'
+    {"value": 'Animalia', "icon":  <PawPrint className='w-4'/> }, 
+    {"value": 'Chordata', "icon":  <PawPrint className='w-4'/> }, 
+    {"value": 'Aves', "icon":  <PawPrint className='w-4'/>}, 
+    {"value": 'Charadriiformes', "icon":  <PawPrint className='w-4'/> }, 
+    {"value": 'Charadriidae', "icon":  <PawPrint className='w-4'/> }, 
+    {"value": 'Vanellus', "icon":  <PawPrint className='w-4'/> }, 
+    {"value": 'Vanellus chilensis', "icon":  <PawPrint className='w-4'/> }
   ];	
   return (
 <>
     <Flex gap="4px 0" wrap>
     {specieCategories.map((specieCategory, index) => (
-        <Tag key={index} icon={<CheckCircleOutlined />} color="blue">
-          {specieCategory}
+        <Tag key={index} icon={specieCategory.icon} color="#5F6D36" className='flex items-center p-1 gap-1 shadow-md cursor-pointer hover:scale-110 ease-in'>
+          {specieCategory.value}
         </Tag>
       ))}
-      {/* <Tag icon={<CheckCircleOutlined />} color="">
-        success
-      </Tag>
-      <Tag icon={<SyncOutlined spin />} color="processing">
-        processing
-      </Tag>
-      <Tag icon={<CloseCircleOutlined />} color="error">
-        error
-      </Tag>
-      <Tag icon={<ExclamationCircleOutlined />} color="warning">
-        warning
-      </Tag>
-      <Tag icon={<ClockCircleOutlined />} color="default">
-        waiting
-      </Tag>
-      <Tag icon={<MinusCircleOutlined />} color="default">
-        stop
-      </Tag> */}
     </Flex>
   </>  )
 }
