@@ -11,6 +11,20 @@ import styled from 'styled-components';
 
 
 export default function OverflowCard() {
+    const species = [
+        {
+            id: 1,
+            name: 'Quero-Quero',
+            scientificName: 'Vanellus chilensis',
+            image: '/queroqueroCarousel.jpg',
+        },
+        {
+            id: 2,
+            name: 'Tatu-Mulita',
+            scientificName: 'Dasypus hybridus',
+            image: '/tatuzin.jpg',
+        }
+    ]
 
     const CustomButton = styled(Button)`
   background-color: #5F6D36 !important; /* Força a cor de fundo */
@@ -25,27 +39,55 @@ export default function OverflowCard() {
   }
 `;
     return (
-        <Card variant="outlined" sx={{ width: 320 }}>
+        <>
+        {species.map((specie) => (
+        <Card variant="outlined" sx={{ width: 320 }} key={specie.id}>
             <CardOverflow>
                 <AspectRatio ratio="2">
                     <img
-                        src="/queroqueroCarousel.jpg"
-                        srcSet="/queroqueroCarousel.jpg 2x"
+                        src={specie.image}
+                        srcSet={`${specie.image} 2x`}
                         loading="lazy"
-                        alt=""
+                        alt={specie.name}
                     />
                 </AspectRatio>
             </CardOverflow>
-            <CardContent >
-                <Typography level="title-lg" sx={{ color: '#5F6D36', fontFamily: 'Popins' }}>QueroQuero</Typography>
-                <Typography level="body-sm">(Vanellus chilensis)</Typography>
-                <CustomButton type="primary"  >
+            <CardContent>
+                <Typography level="title-lg" sx={{ color: '#5F6D36', fontFamily: 'Poppins' }}>
+                    {specie.name}
+                </Typography>
+                <Typography level="body-sm">{specie.scientificName}</Typography>
+                <CustomButton type="primary">
                     Ver Mais
-                </CustomButton> 
+                </CustomButton>
             </CardContent>
             <CardOverflow variant="soft" sx={{ bgcolor: 'background.level1' }}>
                 <Divider inset="context" />
             </CardOverflow>
         </Card>
+    ))}
+    </>
+        // <Card variant="outlined" sx={{ width: 320 }}>
+        //     <CardOverflow>
+        //         <AspectRatio ratio="2">
+        //             <img
+        //                 src="/queroqueroCarousel.jpg"
+        //                 srcSet="/queroqueroCarousel.jpg 2x"
+        //                 loading="lazy"
+        //                 alt=""
+        //             />
+        //         </AspectRatio>
+        //     </CardOverflow>
+        //     <CardContent >
+        //         <Typography level="title-lg" sx={{ color: '#5F6D36', fontFamily: 'Popins' }}>QueroQuero</Typography>
+        //         <Typography level="body-sm">(Vanellus chilensis)</Typography>
+        //         <CustomButton type="primary"  >
+        //             Ver Mais
+        //         </CustomButton> 
+        //     </CardContent>
+        //     <CardOverflow variant="soft" sx={{ bgcolor: 'background.level1' }}>
+        //         <Divider inset="context" />
+        //     </CardOverflow>
+        // </Card>
     );
 }

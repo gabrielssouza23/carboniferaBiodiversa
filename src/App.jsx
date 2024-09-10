@@ -7,6 +7,7 @@ import Home from './pages/home/index'
 import Catalog from './pages/catalog'
 import Specie from './pages/speciePage'
 import Contribution from './pages/contributionPage'
+import Articles from './pages/articles'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
         <Route path="/catalogo" element={<Catalog />} />
         <Route path="/catalogo/:specieId" element={<Specie />} />
         <Route path="/contribuir" element={<Contribution />} />
+        <Route path="/artigos" element={<Articles />} />
       </Routes>
     </BrowserRouter>
     </>

@@ -7,18 +7,18 @@ import {
   MinusCircleOutlined,
   SyncOutlined,
 } from '@ant-design/icons';
-import { Divider, Flex, Tag } from 'antd';
-import { PawPrint, Sprout } from 'lucide-react';
+import { Flex, Tag } from 'antd';
+import { Bird, Dna, PawPrint, Sprout } from 'lucide-react';
 
 export default function TagCategorySpecie() {
   const specieCategories = [
     {"value": 'Animalia', "icon":  <PawPrint className='w-4'/> }, 
     {"value": 'Chordata', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Aves', "icon":  <PawPrint className='w-4'/>}, 
+    {"value": 'Aves', "icon":  <Bird className='w-4'/>}, 
     {"value": 'Charadriiformes', "icon":  <PawPrint className='w-4'/> }, 
     {"value": 'Charadriidae', "icon":  <PawPrint className='w-4'/> }, 
     {"value": 'Vanellus', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Vanellus chilensis', "icon":  <PawPrint className='w-4'/> }
+    {"value": 'Vanellus chilensis', "icon":  <Dna className='w-4'/> }
   ];	
   return (
 <>
