@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/home/index'
@@ -8,9 +6,10 @@ import Catalog from './pages/catalog'
 import Specie from './pages/speciePage'
 import Contribution from './pages/contributionPage'
 import Articles from './pages/articles'
+import Admin from './pages/admin'
+import Login from './pages/articles/login'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -21,6 +20,8 @@ function App() {
         <Route path="/catalogo/:specieId" element={<Specie />} />
         <Route path="/contribuir" element={<Contribution />} />
         <Route path="/artigos" element={<Articles />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
     </>
