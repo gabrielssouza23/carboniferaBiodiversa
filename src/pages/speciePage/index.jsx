@@ -9,45 +9,63 @@ import CarouselCommunity from './carouselCommunity'
 import References from './references'
 import Bibliography from './bibliography'
 import SimpleMap from './map'
+import { useParams } from 'react-router-dom';
+import api from '../../services/api'
+
 
 export default function Specie() {
+
+    const { specieId } = useParams();
+
+    const [specie, setSpecie] = React.useState([]);
+
+    React.useEffect(() => {
+        api.get(`/species/specie/${specieId}`)
+            .then((response) => {
+                console.log(response.data);
+                setSpecie(response.data);
+            })
+            .catch((err) => {
+                console.error("ops! ocorreu um erro" + err);
+            });
+    },[specieId]);
+
     return (
         <MainContainer currentPage='catalog'>
             <div className='items-center justify-center flex flex-col gap-3'>
                 <h1 className='text-4xl text-custom-green'>
-                    Quero-Quero
+                    {specie.nomepopular}
                 </h1>
-                <p className='text-zinc-400'>(Vanellus chilensis)</p>
+                <p className='text-zinc-400'>({specie.nomecientifico})</p>
             </div>
-            <Divider centered={true}/>
-            
+            <Divider centered={true} />
+
             <div className='flex px-8'>
                 <TagCategorySpecie />
             </div>
             <div className="m-auto p-8 pt-0">
-                <CarouselSpecie />
+                <CarouselSpecie allImages={specie.all_images}/>
             </div>
             <section className='flex items-start justify-center flex-col gap-6 px-8 font-poppins'>
                 <h1 className='text-2xl text-custom-green font-semibold'>Descrição morfológica</h1>
                 <Divider />
 
                 <p className='from-neutral-50 tracking-wide	leading-6 text-justify'>
-                Mede 37 centímetros de comprimento e pesa cerca de 277 gramas.
-                Possui um esporão pontudo, ósseo, com 1 centímetro de comprimento no encontro das asas, uma faixa preta desde o pescoço ao peito e ainda umas penas longas (penacho) na região posterior da cabeça; tem um desenho chamativo de preto, branco e cinzento na plumagem. A íris e as pernas são avermelhadas. O esporão é exibido a rivais ou inimigos com um alçar de asa ou durante o voo.
+                    {specie.descricao}
                 </p>
 
                 <References />
 
-            <Bibliography />               
+                <Bibliography />
 
                 <h1 className='text-2xl text-custom-green font-semibold'>Contribuição da comunidade</h1>
                 <Divider />
             </section>
-            
-                <div className="m-auto p-8 pt-0">
-                    <CarouselCommunity />
-                </div>
-                <SimpleMap />
+
+            <div className="m-auto p-8 pt-0">
+                <CarouselCommunity />
+            </div>
+            <SimpleMap />
 
             <Footer />
         </MainContainer>

@@ -7,7 +7,7 @@ import Specie from './pages/speciePage'
 import Contribution from './pages/contributionPage'
 import Articles from './pages/articles'
 import Admin from './pages/admin'
-import Login from './pages/articles/login'
+import Login from './pages/admin/login'
 
 function App() {
 

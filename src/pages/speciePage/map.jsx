@@ -3,6 +3,9 @@ import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
+const MAPS_KEY = import.meta.env.VITE_MAPS_KEY;
+
+
 export default function SimpleMap(){
   const defaultProps = {
     center: {
@@ -16,7 +19,7 @@ export default function SimpleMap(){
     // Important! Always set the container height explicitly
     <div style={{ height: '70vh', width: '90%' }} className="m-auto">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "" }}
+        bootstrapURLKeys={{ key: MAPS_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >

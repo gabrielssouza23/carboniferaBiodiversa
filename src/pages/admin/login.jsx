@@ -2,22 +2,27 @@ import React from 'react';
 import MainContainer from '../../components/core/mainContainer';
 import Footer from '../../components/footer';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import api from '../../services/api';
 
 export default function Login() {
 
-    const loginUrl = "http://localhost:3333/admins/admins-login";
-
-    const [post, setPost] = React.useState(null);
+    const navigate = useNavigate();
 
     function login(email, password) {
-        axios
-            .post(loginUrl, {               
-                    email: email,
-                    senha: password           
+        api
+            .post("/admins/admins-login", {
+                email: email,
+                senha: password
             })
             .then((response) => {
-                setPost(response.data);
-                console.log(post)
+                console.log('Response:', response);
+                const token = response.data.data.token;
+                if (token) {
+                    // Salva diretamente o token retornado
+                    sessionStorage.setItem('authToken', token);
+                    navigate('/admin');
+                }
             });
     }
 
