@@ -10,7 +10,7 @@ export default function Navbar({ currentPage }) {
     { name: 'Home', href: '/', current: currentPage == 'home' ? true : false },
     { name: 'Catálogo', href: '/catalogo', current: currentPage == 'catalog' ? true : false },
     { name: 'Sobre o Projeto', href: '#', current: currentPage == 'about' ? true : false },
-    { name: 'Artigos', href: 'artigos', current: currentPage == 'articles' ? true : false },
+    { name: 'Artigos', href: '/artigos', current: currentPage == 'articles' ? true : false },
   ]
   return (
     // <div className='w-full fixed top-0 left-0'>

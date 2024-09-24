@@ -1,33 +1,29 @@
 import React from 'react';
-import {
-  CheckCircleOutlined,
-  ClockCircleOutlined,
-  CloseCircleOutlined,
-  ExclamationCircleOutlined,
-  MinusCircleOutlined,
-  SyncOutlined,
-} from '@ant-design/icons';
 import { Flex, Tag } from 'antd';
-import { Bird, Dna, PawPrint, Sprout } from 'lucide-react';
+import { Bird, Dna, PawPrint } from 'lucide-react';
 
-export default function TagCategorySpecie() {
-  const specieCategories = [
-    {"value": 'Animalia', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Chordata', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Aves', "icon":  <Bird className='w-4'/>}, 
-    {"value": 'Charadriiformes', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Charadriidae', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Vanellus', "icon":  <PawPrint className='w-4'/> }, 
-    {"value": 'Vanellus chilensis', "icon":  <Dna className='w-4'/> }
-  ];	
+export default function TagCategorySpecie({ reino, filo, classe, ordem, familia, genero, especie }) {
+  const categories = [
+    { value: reino, icon: <Dna className='w-4' /> },
+    { value: filo, icon: <Dna className='w-4' /> },
+    { value: classe, icon: <Dna className='w-4' /> },
+    { value: ordem, icon: <Dna className='w-4' /> },
+    { value: familia, icon: <Dna className='w-4' /> },
+    { value: genero, icon: <Dna className='w-4' /> },
+    { value: especie, icon: <Dna className='w-4' /> },
+  ];
+
   return (
-<>
-    <Flex gap="4px 0" wrap>
-    {specieCategories.map((specieCategory, index) => (
-        <Tag key={index} icon={specieCategory.icon} color="#5F6D36" className='flex items-center p-1 gap-1 shadow-md cursor-pointer hover:scale-110 ease-in'>
-          {specieCategory.value}
-        </Tag>
-      ))}
-    </Flex>
-  </>  )
+    <>
+      <Flex gap="4px 0" wrap>
+        {categories.map((specieCategory, index) => (
+          specieCategory.value && ( // Verifique se o valor não é vazio
+            <Tag key={index} color="#5F6D36" className='flex items-center p-1 gap-1 shadow-md cursor-pointer hover:scale-110 ease-in'>
+              {specieCategory.icon} {specieCategory.value}
+            </Tag>
+          )
+        ))}
+      </Flex>
+    </>
+  );
 }

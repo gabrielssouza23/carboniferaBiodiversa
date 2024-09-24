@@ -71,9 +71,9 @@ export default function OverflowCard() {
                                         {specie.nomepopular}
                                     </Typography>
                                     <Typography level="body-sm">{specie.nomecientifico}</Typography>
-                                    {/* <CustomButton type="primary" onClick={() => navigate(`/catalogo/${specie.id}`)}>
+                                    <CustomButton type="primary" onClick={() => navigate(`/catalogo/${specie.id}`)}>
                                         Ver Mais
-                                    </CustomButton> */}
+                                    </CustomButton>
                                 </CardContent>
                                 <CardOverflow variant="soft" sx={{ bgcolor: 'background.level1' }}>
                                     <Divider inset="context" />

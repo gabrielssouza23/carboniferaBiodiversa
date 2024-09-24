@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Carousel, Image, Radio } from 'antd';
+import React from 'react';
+import { Carousel, Image } from 'antd';
+import PropTypes from 'prop-types';
 
 const contentStyle = {
   height: '500px',
@@ -12,25 +13,36 @@ const contentStyle = {
   justifyContent: 'center',
 };
 
-const images = [
-  { src: '/brabuleta.jpg', alt: 'Descrição da imagem 1' },
-  { src: '/teste2.jpg', alt: 'Descrição da imagem 2' },
-  { src: '/bixo.jpg', alt: 'Descrição da imagem 3' },
-  { src: '/borboleta.jpg', alt: 'Descrição da imagem 4' },
-];
+const CarouselSpecie = ({ allImages }) => {
+  // Transformar a string em um array
+  const imagesArray = allImages.split(',').map(image => image.trim());
 
-const CarouselSpecie = () => {
+  // Verifique se o array de imagens não está vazio
+  if (imagesArray.length === 0) {
+    return <p>Nenhuma imagem disponível.</p>;
+  }
+
+  // const images = imagesArray.map((image) => ({ src: image, alt: 'Descrição da imagem' }));
+
   return (
-    <>
-      <Carousel dotPosition={"bottom"} arrows>
-        {images.map((image, index) => (
-          <div key={index} className="carousel-slide">
-            <Image width={'100%'} height={'100%'} src={image.src} alt={image.alt} className="carousel-image w-full" style={{ ...contentStyle, background: 'none' }} />
-          </div>
-        ))}
-      </Carousel>
-    </>
+    <Carousel dotPosition={"bottom"} arrows>
+      {imagesArray.map((image, index) => (
+        <div key={index} className="carousel-slide">
+          <Image 
+            width={'100%'} 
+            height={'100%'} 
+            src={image} 
+            alt={image.alt} 
+            style={{ ...contentStyle, background: 'none' }} 
+          />
+        </div>
+      ))}
+    </Carousel>
   );
+};
+
+CarouselSpecie.propTypes = {
+  allImages: PropTypes.string.isRequired, // Agora espera uma string
 };
 
 export default CarouselSpecie;
