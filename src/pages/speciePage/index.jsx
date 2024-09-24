@@ -73,9 +73,9 @@ export default function Specie() {
                         <Divider />
                     </section>
                     <div className="m-auto p-8 pt-0">
-                        <CarouselCommunity allContributionImg={""} />
+                        <CarouselCommunity specieId={specieId} />
                     </div>
-                    <SimpleMap />
+                    <SimpleMap specieId={specieId} />
                 </>
             )}
             <Footer />
