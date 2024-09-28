@@ -38,13 +38,12 @@ export default function Home() {
 
                 </div>
 
-                <div className='space-y-8 pb-4'>
+              {/*  <div className='space-y-8 pb-4'>
                     <h2 className='flex items-center justify-center text-xl font-bold text-custom-green'>Veja como contruibuir para o projeto</h2>
                     <Divider centered={true} />
                     <p className='flex items-center justify-center'>Texto explicativo sobre como contribuir</p>
 
-                    {/* steps */}
-                    <div className='flex flex-row gap-6 justify-center items-center'>
+                     <div className='flex flex-row gap-6 justify-center items-center'>
                         <div>
                             <img src="" alt="" />
                             <p>Fotografe a sua observação</p>
@@ -69,7 +68,7 @@ export default function Home() {
 
                     <button type='button'>Contribuir</button>
 
-                </div>
+                </div>  */}
             </section>
             <Footer />
 

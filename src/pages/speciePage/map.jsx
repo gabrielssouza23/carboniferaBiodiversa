@@ -58,6 +58,13 @@ export default function SimpleMap({ specieId }) {
             lng={location.longitude}
           />
         ))}
+        {locations.map((location, index) => (
+          <AnyReactComponent
+            key={index}
+            lat={location.latitude}
+            lng={location.longitude}
+          />
+        ))}
       </GoogleMapReact>
     </div>
   );

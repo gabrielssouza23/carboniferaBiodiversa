@@ -1,7 +1,6 @@
 import React from 'react';
 import MainContainer from '../../components/core/mainContainer';
 import Footer from '../../components/footer';
-import { Carousel } from 'antd';
 import CarouselSpecie from './carouselSpecie';
 import TagCategorySpecie from './tagCategorySpecie';
 import Divider from '../../components/divider';
