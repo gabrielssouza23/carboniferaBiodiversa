@@ -3,9 +3,9 @@ import { Carousel, Image } from 'antd';
 import PropTypes from 'prop-types';
 
 const contentStyle = {
-  height: '500px',
+  height: '400px',
   color: '#fff',
-  lineHeight: '500px',
+  lineHeight: '400px',
   textAlign: 'center',
   background: '#364d79',
   display: 'flex',
@@ -22,10 +22,8 @@ const CarouselSpecie = ({ allImages }) => {
     return <p>Nenhuma imagem disponível.</p>;
   }
 
-  // const images = imagesArray.map((image) => ({ src: image, alt: 'Descrição da imagem' }));
-
   return (
-    <Carousel dotPosition={"bottom"} arrows>
+    <Carousel dotPosition={"bottom"} arrows >
       {imagesArray.map((image, index) => (
         <div key={index} className="carousel-slide">
           <Image 

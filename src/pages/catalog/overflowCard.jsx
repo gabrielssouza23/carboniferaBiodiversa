@@ -70,7 +70,7 @@ export default function OverflowCard() {
                                     <Typography level="title-lg" sx={{ color: '#5F6D36', fontFamily: 'Poppins' }}>
                                         {specie.nomepopular}
                                     </Typography>
-                                    <Typography level="body-sm">{specie.nomecientifico}</Typography>
+                                    <Typography level="body-sm" fontStyle={'italic'}>{specie.nomecientifico}</Typography>
                                     <CustomButton type="primary" onClick={() => navigate(`/catalogo/${specie.id}`)}>
                                         Ver Mais
                                     </CustomButton>
