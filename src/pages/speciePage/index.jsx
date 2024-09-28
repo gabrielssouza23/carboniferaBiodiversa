@@ -51,7 +51,7 @@ export default function Specie() {
                         <h1 className='text-4xl text-custom-green'>
                             {specie.nomepopular}
                         </h1>
-                        <p className='text-zinc-400'>({specie.nomecientifico})</p>
+                        <p className='text-zinc-400 italic'>({specie.nomecientifico})</p>
                     </div>
                     <Divider centered={true} />
                     <div className='flex px-8'>

@@ -33,7 +33,7 @@ export default function SimpleMap({ specieId }) {
   }
 
   if (locations.length === 0) {
-    return <div>Nenhuma localização encontrada</div>;
+    return <div className="m-auto">Nenhuma localização encontrada</div>;
   }
 
   const defaultProps = {
