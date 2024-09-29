@@ -7,6 +7,7 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [fileList, setFileList] = useState([]);
+  const [extraImages, setExtraImages] = useState([]); // Estado para imagens extras
 
   // Função para remover o prefixo base64
   const removeBase64Prefix = (base64String) => {
@@ -18,13 +19,23 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
       const values = await form.validateFields();
       setLoading(true);
 
-      // Converte a imagem para base64
-      const base64Image = await getBase64(fileList[0].originFileObj);
+      // Converte a imagem principal para base64
+      const base64Image = await getBase64(fileList[0]?.originFileObj);
 
-      // Remove o prefixo do base64
+      // Remove o prefixo do base64 da imagem principal
       const cleanBase64 = removeBase64Prefix(base64Image);
 
-      // Cria o objeto com todos os dados a serem enviados
+      // Converte cada imagem extra para base64 e remove o prefixo
+      const extraImagesBase64 = await Promise.all(
+        extraImages.map(async (file) => {
+          const base64 = await getBase64(file.originFileObj);
+          return removeBase64Prefix(base64);
+        })
+      );
+
+      const referencias = values.referencias.split('\n').filter(ref => ref.trim() !== '');
+
+      // Cria o objeto com todos os dados da espécie
       const speciesData = {
         nomePopular: values.nomepopular,
         nomeCientifico: values.nomecientifico,
@@ -36,8 +47,12 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
         genero: values.genero,
         especie: values.especie,
         descricao: values.descricao,
-        thumb: cleanBase64, // Adiciona a imagem em base64
+        thumb: cleanBase64, // Imagem principal em base64
+        extraImages: extraImagesBase64, // Imagens extras em base64
+        references: referencias
       };
+
+      console.log('speciesData:', speciesData);
 
       await api.post('/species/specie-create', speciesData, {
         headers: {
@@ -48,10 +63,12 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
 
       form.resetFields();
       setFileList([]);
+      setExtraImages([]); // Reseta a lista de imagens extras
       onAddSpecies(values); // Atualiza a tabela com a nova espécie
       onClose();
     } catch (error) {
       console.error('Erro ao criar espécie:', error);
+      message.error('Erro ao criar espécie e referências.');
     } finally {
       setLoading(false);
     }
@@ -59,6 +76,10 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
 
   const handleFileChange = ({ fileList }) => {
     setFileList(fileList);
+  };
+
+  const handleExtraImagesChange = ({ fileList }) => {
+    setExtraImages(fileList);
   };
 
   // Função para converter a imagem em base64
@@ -86,7 +107,6 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
       ]}
     >
       <Form form={form} layout="vertical">
-        {/* Demais campos do formulário */}
         <Form.Item
           label="Nome Popular"
           name="nomepopular"
@@ -157,7 +177,7 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
           <Input.TextArea rows={4} />
         </Form.Item>
 
-        {/* Campo de upload de foto */}
+        {/* Campo de upload de foto principal */}
         <Form.Item label="Foto da Espécie">
           <Upload
             listType="picture"
@@ -168,6 +188,28 @@ const CreateSpeciesModal = ({ isVisible, onClose, onAddSpecies }) => {
           >
             <Button icon={<UploadOutlined />}>Escolher Foto</Button>
           </Upload>
+        </Form.Item>
+
+        {/* Campo de upload de imagens extras */}
+        <Form.Item label="Imagens Extras">
+          <Upload
+            listType="picture"
+            multiple
+            fileList={extraImages}
+            onChange={handleExtraImagesChange}
+            beforeUpload={() => false} // Impede o upload automático
+          >
+            <Button icon={<UploadOutlined />}>Escolher Imagens Extras</Button>
+          </Upload>
+        </Form.Item>
+
+        {/* Campo de Referências */}
+        <Form.Item
+          label="Referências"
+          name="referencias"
+          rules={[{ required: true, message: 'Por favor, insira pelo menos uma referência!' }]}
+        >
+          <Input.TextArea rows={4} placeholder="Insira uma referência por linha" />
         </Form.Item>
       </Form>
     </Modal>
