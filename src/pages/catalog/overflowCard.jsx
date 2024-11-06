@@ -11,16 +11,20 @@ import api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../components/loader';
 
-export default function OverflowCard() {
+export default function OverflowCard( { page }) {
     const navigate = useNavigate();
     const [species, setSpecies] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
-    const limit = 10; // Número máximo de espécies por requisição
+    const [isFirstLoad, setIsFirstLoad] = React.useState(true);
 
     const fetchSpecies = React.useCallback(async () => {
         setIsLoading(true);
         try {
-            const response = await api.get(`/species/species-all-catalog?limit=${limit}`);
+            if (isFirstLoad) {
+                page = 0;
+                setIsFirstLoad(false);
+            }
+            const response = await api.get(`/species/species-all-catalog?offset=${page * 10}&limit=10`);
             setSpecies(response.data);
             console.log(response.data); // Log dos dados obtidos
         } catch (err) {
@@ -28,8 +32,8 @@ export default function OverflowCard() {
         } finally {
             setIsLoading(false);
         }
-    }, []); // Apenas limit como dependência
-    
+    }, [page]); // Apenas limit como dependência
+
     React.useEffect(() => {
         fetchSpecies();
     }, [fetchSpecies]); // Chama apenas fetchSpecies
@@ -79,7 +83,10 @@ export default function OverflowCard() {
                                     <Divider inset="context" />
                                 </CardOverflow>
                             </Card>
+
                         ))
+                                   
+                                         
                     ) : (
                         <Typography>Nenhuma espécie encontrada.</Typography>
                     )}
