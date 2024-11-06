@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import TableComponent from './table';
 import { Button } from 'antd';
 import CreateSpeciesModal from './createSpeciesModal';
+import { HandHeart } from 'lucide-react';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function Dashboard() {
           CRUD - Espécies
         </h2>
 
-        <div className="space-y-3">
+        <div className="flex pb-3 gap-3">
           <Button
             type="secondary"
             className='bg-custom-green text-white hover:bg-lime-900'
@@ -39,8 +40,16 @@ export default function Dashboard() {
           >
             Adicionar Espécie
           </Button>
-          <TableComponent />
+          <Button
+            type="secondary"
+            className='bg-custom-green text-white hover:bg-lime-900'
+            onClick={() => navigate('/admin/contribuicao')}
+          >
+            Contribuições
+            <HandHeart />
+          </Button>
         </div>
+          <TableComponent />
       </div>
 
       <CreateSpeciesModal

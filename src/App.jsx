@@ -8,6 +8,7 @@ import Contribution from './pages/contributionPage'
 import Articles from './pages/articles'
 import Admin from './pages/admin'
 import Login from './pages/admin/login'
+import ManageContribution from './pages/admin/manageContribution'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/artigos" element={<Articles />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/contribuicao" element={<ManageContribution />} />
       </Routes>
     </BrowserRouter>
     </>
