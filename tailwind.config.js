@@ -12,8 +12,16 @@ export default {
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        dela: ['Dela Gothic One', 'cursive'],
+        inter: ['Inter', 'Helvetica'],
+        serif: ['"Source Serif 4"', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       },
     },
-    plugins: [],
-  }
+  },
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('child', '& > *');
+      addVariant('child-hover', '& > *:hover');
+    }
+  ],
 }
