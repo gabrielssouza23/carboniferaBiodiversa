@@ -8,7 +8,7 @@ const AnyReactComponent = () => <div>{<Dot color="#ff0000" />}</div>;
 
 const MAPS_KEY = import.meta.env.VITE_MAPS_KEY;
 
-export default function SimpleMap({ specieId }) {
+export default function mapContribution({ specieId }) {
   const [loading, setLoading] = React.useState(true);
   const [locations, setLocations] = React.useState([]);
 
@@ -38,9 +38,8 @@ export default function SimpleMap({ specieId }) {
 
   const defaultProps = {
     center: {
-      lat: locations[0].longitude,  // Acessa a primeira localização
-      // lng: locations[0].longitude
-      lng: locations[0].latitude
+      lat: locations[0].latitude,  // Acessa a primeira localização
+      lng: locations[0].longitude
     },
     zoom: 13
   };
@@ -55,8 +54,15 @@ export default function SimpleMap({ specieId }) {
         {locations.map((location, index) => (
           <AnyReactComponent
             key={index}
-            lat={location.longitude}
-            lng={location.latitude}
+            lat={location.latitude}
+            lng={location.longitude}
+          />
+        ))}
+        {locations.map((location, index) => (
+          <AnyReactComponent
+            key={index}
+            lat={location.latitude}
+            lng={location.longitude}
           />
         ))}
       </GoogleMapReact>

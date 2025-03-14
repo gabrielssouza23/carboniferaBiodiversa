@@ -41,9 +41,19 @@ export default function Specie() {
         especie: specie.especie,
     } : {};
 
+    const processTextWithBold = (text) => {
+        const parts = text.split(/(\*\*[\s\S]+?\*\*)/g);
+        return parts.map((part, index) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                const boldText = part.slice(2, -2).trim();
+                return <b key={index} className='text-xl'>{boldText}</b>;
+            }
+            return part;
+        });
+    };
     return (
         <MainContainer currentPage='catalog'>
-            {loading ? ( 
+            {loading ? (
                 <Loader />
             ) : (
                 <>
@@ -63,15 +73,20 @@ export default function Specie() {
                     <section className='flex items-start justify-center flex-col gap-6 px-8 font-poppins'>
                         <h1 className='text-2xl text-custom-green font-semibold'>Descrição morfológica</h1>
                         <Divider />
-                        <p className='from-neutral-50 tracking-wide leading-6 text-justify'>
-                            {specie.descricao}
+                        <p className='from-neutral-50 tracking-wide leading-6 text-justify font-poppins font-normal'>
+                            {/* {specie.descricao} */}
+                            {specie.descricao.split(/\n/).map((paragraph, index) => (
+                                <div key={index} className="mb-4">
+                                    {processTextWithBold(paragraph.trim())}
+                                </div>
+                            ))}
                         </p>
                         <References allReferences={specie.all_references} />
                         {/* <Bibliography /> */}
-                        <h1 className='text-2xl text-custom-green font-semibold'>Contribuição da comunidade</h1>
+                        <h1 className='text-2xl text-custom-green font-semibold  mt-0'>Contribuição da comunidade</h1>
                         <Divider />
                     </section>
-                    <div className="m-auto p-8 pt-0">
+                    <div className="m-auto">
                         <CarouselCommunity specieId={specieId} />
                     </div>
                     <SimpleMap specieId={specieId} />

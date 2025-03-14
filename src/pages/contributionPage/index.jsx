@@ -122,7 +122,7 @@ export default function Contribution() {
                         label="Nome"
                         rules={[{ required: true, message: 'Por favor, insira seu nome!' }]}
                     >
-                        <Input className='contributionInput' />
+                        <Input className='' />
                     </Form.Item>
 
                     <Form.Item
@@ -130,14 +130,14 @@ export default function Contribution() {
                         label="Email"
                         rules={[{ required: true, type: 'email', message: 'Por favor, insira um email válido!' }]}
                     >
-                        <Input className='contributionInput' />
+                        <Input className='' />
                     </Form.Item>
 
                     <Form.Item
                         name="phone"
                         label="Número de Telefone (opcional)"
                     >
-                        <Input className='contributionInput' />
+                        <Input className='' />
                     </Form.Item>
 
                     <Form.Item
@@ -145,7 +145,7 @@ export default function Contribution() {
                         label="Localização da Espécie"
                         rules={[{ required: true, message: 'Por favor, insira a localização da espécie!' }]}
                     >
-                        <Input className='contributionInput' />
+                        <Input className='' />
                     </Form.Item>
 
                     <div className="">
@@ -154,7 +154,7 @@ export default function Contribution() {
                             label="Dia e Hora da Foto"
                             rules={[{ required: true, message: 'Por favor, selecione a data e hora!' }]}
                         >
-                            <DatePicker showTime className='contributionInput' />
+                            <DatePicker showTime className='' />
                         </Form.Item>
 
                         <Form.Item

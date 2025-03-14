@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import TableComponent from './table';
 import { Button } from 'antd';
 import CreateSpeciesModal from './createSpeciesModal';
-import { HandHeart } from 'lucide-react';
+import { HandHeart, CirclePlus, CircleArrowLeft } from 'lucide-react';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -36,9 +36,18 @@ export default function Dashboard() {
           <Button
             type="secondary"
             className='bg-custom-green text-white hover:bg-lime-900'
+            onClick={() => navigate('/admin/')}
+          >
+            Voltar
+            <CircleArrowLeft />
+          </Button>
+          <Button
+            type="secondary"
+            className='bg-custom-green text-white hover:bg-lime-900'
             onClick={() => setIsModalVisible(true)}
           >
             Adicionar Espécie
+            <CirclePlus />
           </Button>
           <Button
             type="secondary"
@@ -49,7 +58,7 @@ export default function Dashboard() {
             <HandHeart />
           </Button>
         </div>
-          <TableComponent />
+        <TableComponent />
       </div>
 
       <CreateSpeciesModal
