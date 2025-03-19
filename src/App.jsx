@@ -10,6 +10,7 @@ import Login from './pages/admin/login';
 import ManageContribution from './pages/admin/contribution/manageContribution';
 import ArticlePage from './pages/articles/articlePage';
 import NotFoundPage from './pages/NotFoundPage'; // Importa a página 404
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         {/* Rota de 404 - Página Não Encontrada */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
