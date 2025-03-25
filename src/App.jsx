@@ -11,6 +11,7 @@ import ManageContribution from './pages/admin/contribution/manageContribution';
 import ArticlePage from './pages/articles/articlePage';
 import NotFoundPage from './pages/NotFoundPage'; // Importa a página 404
 import { Analytics } from "@vercel/analytics/react"
+import Participe from './pages/participe/Index';
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
         <Route path="/catalogo" element={<Catalog />} />
         <Route path="/catalogo/:specieId" element={<Specie />} />
         <Route path="/contribuir" element={<Contribution />} />
+        <Route path="/participe" element={<Participe />} />
         <Route path="/artigos" element={<Articles />} />
         <Route path="/artigo/:articleId" element={<ArticlePage />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/contribuicao" element={<ManageContribution />} />
-        
+    
         {/* Rota de 404 - Página Não Encontrada */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
