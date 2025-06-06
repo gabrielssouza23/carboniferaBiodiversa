@@ -57,7 +57,7 @@ function ArticleCard({ image, title, summary, author, date, link, featured }) {
 
   return (
     <div
-      className="w-[375px] border border-gray-200 bg-white pb-4 font-sans transition-all duration-200 cursor-pointer hover:-translate-y-1"
+      className="w-100 border border-gray-200 bg-white pb-4 font-sans transition-all duration-200 cursor-pointer hover:-translate-y-1"
       onClick={handleClick}
       role="button"
       tabIndex={0}

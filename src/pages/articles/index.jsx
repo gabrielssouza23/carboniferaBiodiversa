@@ -25,7 +25,7 @@ export default function Articles() {
                     link="/artigo/1"
                 />
             </div>
-            <section className="flex flex-wrap gap-6 px-[8rem]">
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-[8rem]">
                 <ArticleCard
                     image="https://i.ibb.co/bMJQm0S5/Whats-App-Image-2025-03-24-at-19-03-56-1.jpg"
                     title="Quem somos e o que é a Carbonífera Biodiversa?"
