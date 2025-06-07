@@ -11,7 +11,8 @@ export default function Articles() {
         <MainContainer currentPage="articles">
             <h1 className="items-center justify-center flex text-2xl sm:text-3xl md:text-4xl text-custom-green text-center">Artigos</h1>
             <Divider centered={true} />
-            <div className="px-4 sm:px-8 md:px-16 lg:px-[8rem]">
+            <div className="px-4 md:px-6 flex  justify-center items-center">
+                <div className="w-4/5">
                 <ArticleCard
                     featured
                     image="https://i.ibb.co/bMJQm0S5/Whats-App-Image-2025-03-24-at-19-03-56-1.jpg"
@@ -24,8 +25,10 @@ export default function Articles() {
                     date="5 de Jul, 2025"
                     link="/artigo/1"
                 />
+                </div>
             </div>
-            <section className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-6 px-4 sm:px-8 md:px-16">
+            <div className="flex justify-center items-center px-4 md:px-6">
+            <section className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-6 w-4/5 md:w-1/1">
                 <ArticleCard
                     image="https://i.ibb.co/bMJQm0S5/Whats-App-Image-2025-03-24-at-19-03-56-1.jpg"
                     title="Quem somos e o que é a Carbonífera Biodiversa?"
@@ -60,6 +63,7 @@ export default function Articles() {
                     link="/artigo/1"
                 />
             </section>
+            </div>
             <Footer />
         </MainContainer>
     );

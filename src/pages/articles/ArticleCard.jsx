@@ -32,7 +32,7 @@ function ArticleCard({ image, title, summary, author, date, link, featured }) {
             <div className="w-full h-full bg-gray-200" />
           )}
         </div>
-        <div className="flex flex-col justify-between p-3 sm:p-5 md:p-6 w-full md:w-1/2">
+        <div className="flex flex-col p-3 sm:p-5 md:p-6 w-full md:w-1/2">
           <div>
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 text-black">{title}</h2>
             <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4 line-clamp-3">{summary}</p>
@@ -46,7 +46,7 @@ function ArticleCard({ image, title, summary, author, date, link, featured }) {
               </div>
             )}
             <div>
-              <div className="text-base sm:text-lg text-gray-700 font-medium">{author.name}</div>
+              <div className="text-base sm:text-lg text-gray-500">{author.name}</div>
               <div className="text-xs sm:text-sm text-gray-400">{date}</div>
             </div>
           </div>
