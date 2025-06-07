@@ -106,7 +106,7 @@ A proposta foi construída pelo Alexandre Achilles de Souza Borges, Gabriel de S
           <h1 className="text-4xl font-bold text-gray-800">{article.title}</h1>
           <h2>{article.summary}</h2>
         </div>
-        <div className="flex justify-between w-full items-center mt-2 border-slate-200 p-2 border-solid border-y">
+        <div className="flex flex-col md:flex-row gap-4 justify-between w-full items-center mt-2 border-slate-200 p-2 border-solid border-y">
           <div className="flex gap-2 items-center text-gray-500">
             <div className="flex items-center ml-4 mt-2">
               {author.image ? (
@@ -120,8 +120,6 @@ A proposta foi construída pelo Alexandre Achilles de Souza Borges, Gabriel de S
                 <div className="text-base text-gray-500">{author.name + " • " + article.date}</div>
               </div>
             </div>
-            {/* <UserCircle2 /> */}
-            {/* <p>Carbonífera Biodiversa - 5 de Jul, 2025</p> */}
           </div>
           <div className="flex gap-2 items-center text-gray-500">
             <button
