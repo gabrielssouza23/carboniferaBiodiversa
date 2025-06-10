@@ -9,7 +9,7 @@ export default function Navbar({ currentPage }) {
   const navigation = [
     { name: 'Home', href: '/', current: currentPage == 'home' ? true : false },
     { name: 'Catálogo', href: '/catalogo', current: currentPage == 'catalog' ? true : false },
-    { name: 'Sobre o Projeto', href: '#', current: currentPage == 'about' ? true : false },
+    { name: 'Participe', href: '/participe', current: currentPage == 'participe' ? true : false },
     { name: 'Artigos', href: '/artigos', current: currentPage == 'articles' ? true : false },
   ]
   return (
